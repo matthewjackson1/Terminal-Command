@@ -1,0 +1,149 @@
+#### Questions ####
+
+> 1. Run the commands sort, wc and uniq on the commands.js file. Explain how they work and what the output was.
+
+- Sort: returns an alphabetically ordered list of lines in the file
+
+ 	"echo": function(userInput) {
+           done(data);
+           if (err) throw err;
+       break;
+       break;
+       commandLibrary.cat(userInputArray.slice(1));
+       commandLibrary.echo(userInputArray.slice(1).join(" "));
+       const fileName = fullPath[0];
+       done(userInput);
+       fs.readFile(fileName, (err, data) => {
+       });
+      //we will add the functionality of echo next within the object commandLibrary    
+     case "cat":
+     case "echo":
+     process.stdout.write('\nprompt > ');
+     process.stdout.write(output);
+   "cat": function(fullPath) {
+   const command = userInputArray[0];
+   const userInputArray = userInput.split(" ");
+   switch (command) {
+   }
+   }
+   },
+  //parses the user input to understand which command was typed
+ const commandLibrary = {
+ const fs = require("fs");
+ function done(output) {
+ function evaluateCmd(userInput) {
+ module.exports.commandLibrary = commandLibrary;
+ module.exports.evaluateCmd = evaluateCmd;
+ }
+ }
+ };
+//where we will store our commands
+//where we will store the logic of our commands
+//write out data
+
+
+- wc - returns the number of lines, words and characters in the input file
+
+      40     113    1085 commands.js
+
+- uniq - returns lines from the file as long as they are different from the directly preceding line
+
+ const fs = require("fs");
+
+//write out data
+ function done(output) {
+     process.stdout.write(output);
+     process.stdout.write('\nprompt > ');
+ }
+
+//where we will store our commands
+ function evaluateCmd(userInput) {
+  //parses the user input to understand which command was typed
+   const userInputArray = userInput.split(" ");
+   const command = userInputArray[0];
+
+   switch (command) {
+     case "echo":
+      //we will add the functionality of echo next within the object commandLibrary    
+       commandLibrary.echo(userInputArray.slice(1).join(" "));
+       break;
+     case "cat":
+       commandLibrary.cat(userInputArray.slice(1));
+       break;
+   }
+ }
+
+//where we will store the logic of our commands
+ const commandLibrary = {
+ 	"echo": function(userInput) {
+       done(userInput);
+   },
+   "cat": function(fullPath) {
+       const fileName = fullPath[0];
+       fs.readFile(fileName, (err, data) => {
+           if (err) throw err;
+           done(data);
+       });
+   }
+ };
+
+
+
+
+> 2. Using the pipe (|) connect at least two commands and run it on commands.js. Explain what the output was and why the specific data was outputted.
+
+sort commands.js | uniq
+
+This removes all repeated lines (we didn't achieve this through uniq previously as uniq only looks at the directly preceding lines.)
+
+
+ 	"echo": function(userInput) {
+           done(data);
+           if (err) throw err;
+       break;
+       commandLibrary.cat(userInputArray.slice(1));
+       commandLibrary.echo(userInputArray.slice(1).join(" "));
+       const fileName = fullPath[0];
+       done(userInput);
+       fs.readFile(fileName, (err, data) => {
+       });
+      //we will add the functionality of echo next within the object commandLibrary    
+     case "cat":
+     case "echo":
+     process.stdout.write('\nprompt > ');
+     process.stdout.write(output);
+   "cat": function(fullPath) {
+   const command = userInputArray[0];
+   const userInputArray = userInput.split(" ");
+   switch (command) {
+   }
+   },
+  //parses the user input to understand which command was typed
+ const commandLibrary = {
+ const fs = require("fs");
+ function done(output) {
+ function evaluateCmd(userInput) {
+ module.exports.commandLibrary = commandLibrary;
+ module.exports.evaluateCmd = evaluateCmd;
+ }
+ };
+//where we will store our commands
+//where we will store the logic of our commands
+//write out data
+
+
+> 6. Given a string, reverse the order of characters in each word within a sentence while maintaining the original word order and whitespace and return the string. To improve your problem-solving experience, use the suggested functions to solve the problem.
+
+function reverseString(inputString) {
+   let reversedString = [];
+   let splitString = inputString.split(" ");
+   let reversedWords = splitString.forEach(word => {
+     let lettersArray = word.split('');
+     let reversedWord = lettersArray.reverse().join('');
+     reversedString.push(reversedWord);
+   })
+   console.log(reversedString.join(" "));
+
+}
+
+reverseString("Hello Everyone, how are you?")
